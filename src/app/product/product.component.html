@@ -1,0 +1,10 @@
+<div class="row">
+
+<div *ngFor="let item of product" class="col-md-6">
+  <div class="card card-block">
+    <h3 class="card-title">{{item.c_title}}</h3>
+    <p class="card-text">{{item.c_detail}}</p>
+    <button (click)="onShowDetail(item)" class="btn btn-primary">View</button>
+  </div>
+</div>
+</div>

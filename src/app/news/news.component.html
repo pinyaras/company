@@ -1,0 +1,28 @@
+<!-- Articles -->
+<div class="row">
+  <div class="col-md-8">
+    <img *ngIf="isLoading" src="../assets/images/loading.gif" class="m-x-auto d-block">
+
+    <label for='search'>Search</label>
+    <input type='text' #search (keyup)="onSearch(search.value)">
+    
+    <article class="col-xs-12" *ngFor="let item of news">
+      <h2>{{item.title}}</h2>
+      <img [src]="item.urlToImage" class="img-fluid m-x-auto d-block"> <!-- img responsive -->
+      <p>{{item.description}}</p>
+      <p><a [href]="item.url" target="_blank" class="btn btn-outline-success">Read More</a></p>
+      <p class="pull-right"><span class="tag tag-default">{{item.publishedAt | date: 'dd/MM/yyyy'}}</span> </p>
+      <ul class="list-inline">
+        <li class="list-inline-item">{{item.author}}</li>
+        
+      </ul>
+    </article>
+    <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}</div>
+  </div>
+
+  <div class="col-md-4">
+      <app-login></app-login>
+      <app-slide></app-slide>
+  </div>
+
+</div>
